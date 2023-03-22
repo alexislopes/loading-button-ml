@@ -1,9 +1,11 @@
 <script setup>
-import Loading from "./components/Loading.vue"
+import ButtonML from './components/ButtonML.vue';
 </script>
 
 <template>
-<Loading >
+  <div class="flex-wrap h-full w-full flex content-center justify-center">
+    <ButtonML />
+  </div>
 </template>
 
 <style scoped>
