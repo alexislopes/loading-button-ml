@@ -1,11 +1,46 @@
 <template>
-  <button>
-    Iniciar sessão
+  <!-- <Loading /> -->
+  <button @click="setLoading" >
+    <div class="w-[22%] flex justify-center absolute mt-7 opacity-0" :class="{'in': loading}">
+      <Loading/>
+    </div>
+    <span class="text" :class="{'out': loading}"> Iniciar sessão</span>
   </button>
 </template>
 
+<script setup>
+import { ref } from "vue";
+import Loading from "./Loading.vue";
+
+const loading = ref(false);
+
+function setLoading() {
+  loading.value = true
+  setTimeout(() => loading.value = false , 3000)
+}
+
+
+</script>
+
 <style scoped>
 button {
-  @apply bg-primary text-white font-bold rounded-md px-8 py-3 h-fit
+  @apply bg-primary text-white font-bold rounded-md px-8 py-3 flex w-48 text-center flex-col justify-center
 }
+
+.text {
+  @apply transition-all duration-300 ease-in
+}
+
+.text.out {
+ @apply -translate-y-8 opacity-0
+}
+
+span {
+  @apply w-full
+}
+
+.in {
+  @apply opacity-100 -translate-y-3.5 transition-all duration-300 ease-in
+}
+
 </style>
