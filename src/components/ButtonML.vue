@@ -1,10 +1,7 @@
 <template>
-  <!-- <Loading /> -->
-  <button @click="setLoading" >
-    <div class="w-[22%] flex justify-center absolute mt-7 opacity-0" :class="{'in': loading}">
-      <Loading/>
-    </div>
-    <span class="text" :class="{'out': loading}"> Iniciar sessão</span>
+    <button @click="setLoading">
+      <Loading :class="{ 'in': loading }" />
+      <span class="text" :class="{ 'out': loading }"> Iniciar sessão</span>
   </button>
 </template>
 
@@ -16,7 +13,7 @@ const loading = ref(false);
 
 function setLoading() {
   loading.value = true
-  setTimeout(() => loading.value = false , 3000)
+  setTimeout(() => loading.value = false, 4000)
 }
 
 
@@ -24,7 +21,7 @@ function setLoading() {
 
 <style scoped>
 button {
-  @apply bg-primary text-white font-bold rounded-md px-8 py-3 flex w-48 text-center flex-col justify-center
+  @apply bg-primary text-white font-bold rounded-md px-8 py-3 flex w-48 text-center flex-col justify-center relative
 }
 
 .text {
@@ -32,7 +29,7 @@ button {
 }
 
 .text.out {
- @apply -translate-y-8 opacity-0
+  @apply -translate-y-8 opacity-0
 }
 
 span {
@@ -42,5 +39,4 @@ span {
 .in {
   @apply opacity-100 -translate-y-3.5 transition-all duration-300 ease-in
 }
-
 </style>
