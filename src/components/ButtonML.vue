@@ -1,7 +1,7 @@
 <template>
-    <button @click="setLoading">
-      <Loading :class="{ 'in': loading }" />
-      <span class="text" :class="{ 'out': loading }"> Iniciar sessão</span>
+  <button @click="setLoading">
+    <Loading :class="{ 'in': loading }" />
+    <span class="text" :class="{ 'out': loading }"> Iniciar sessão</span>
   </button>
 </template>
 
@@ -15,8 +15,6 @@ function setLoading() {
   loading.value = true
   setTimeout(() => loading.value = false, 4000)
 }
-
-
 </script>
 
 <style scoped>
